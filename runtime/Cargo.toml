@@ -48,6 +48,9 @@ sp-version = {default-features = false, version = '3.0.0', git = 'https://github
 # local dependencies
 pallet-template = {default-features = false, version = '3.0.0', path = '../pallets/template'}
 
+# external pallets
+pallet-dotmog = {default-features = false, version = '0.1.0', git = 'https://github.com/dotmog/pallet-dotmog.git', tag = 'monthly-2021-05'}
+
 [features]
 default = ['std']
 runtime-benchmarks = [
@@ -76,6 +79,7 @@ std = [
 	'pallet-timestamp/std',
 	'pallet-transaction-payment-rpc-runtime-api/std',
 	'pallet-transaction-payment/std',
+	'pallet-dotmog/std',
 	'sp-api/std',
 	'sp-block-builder/std',
 	'sp-consensus-aura/std',

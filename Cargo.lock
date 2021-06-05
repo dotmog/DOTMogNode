@@ -3720,6 +3720,7 @@ dependencies = [
  "hex-literal",
  "pallet-aura",
  "pallet-balances",
+ "pallet-dotmog 0.1.0 (git+https://github.com/dotmog/pallet-dotmog.git?tag=monthly-2021-05)",
  "pallet-grandpa",
  "pallet-randomness-collective-flip",
  "pallet-sudo",
@@ -3945,6 +3946,35 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-dotmog"
+version = "0.1.0"
+source = "git+https://github.com/dotmog/pallet-dotmog.git?tag=monthly-2021-05#5ea9f187ddd5c7117fa546d824b8c9bf078f6af4"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "parity-scale-codec",
+ "serde",
+ "sp-core",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
+name = "pallet-dotmog"
+version = "0.1.0"
+source = "git+https://github.com/dotmog/pallet-dotmog.git#ee0e8b14d3e42113a602bc7d5f5367171e058443"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "parity-scale-codec",
+ "serde",
+ "sp-core",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
 name = "pallet-grandpa"
 version = "3.0.0"
 source = "git+https://github.com/paritytech/substrate.git?tag=monthly-2021-05#70ef0afc86cdef0cba09336acffb08bff08540aa"
@@ -4017,6 +4047,7 @@ dependencies = [
  "frame-benchmarking",
  "frame-support",
  "frame-system",
+ "pallet-dotmog 0.1.0 (git+https://github.com/dotmog/pallet-dotmog.git)",
  "parity-scale-codec",
  "serde",
  "sp-core",

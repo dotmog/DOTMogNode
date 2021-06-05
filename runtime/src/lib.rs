@@ -30,7 +30,7 @@ pub use pallet_timestamp::Call as TimestampCall;
 pub use pallet_balances::Call as BalancesCall;
 pub use sp_runtime::{Permill, Perbill};
 pub use frame_support::{
-	construct_runtime, parameter_types, StorageValue,
+	construct_runtime, parameter_types, StorageValue, PalletId,
 	traits::{KeyOwnerProofSystem, Randomness},
 	weights::{
 		Weight, IdentityFee,
@@ -274,6 +274,21 @@ impl pallet_template::Config for Runtime {
 	type Event = Event;
 }
 
+parameter_types! {
+	pub const DotMogPalletId: PalletId = PalletId(*b"py/dtmog");
+}
+
+/// Configure the pallet dotmog in pallets/dotmog.
+impl pallet_dotmog::Config for Runtime {
+		type PalletId = DotMogPalletId;
+		type Event = Event;
+		type Currency = Balances;
+		type Randomness = RandomnessCollectiveFlip;
+		type PricePayment = ();
+		//type Scheduler = Scheduler;
+		//type PalletsOrigin = OriginCaller;
+}
+
 // Create the runtime by composing the FRAME pallets that were previously configured.
 construct_runtime!(
 	pub enum Runtime where
@@ -291,6 +306,8 @@ construct_runtime!(
 		Sudo: pallet_sudo::{Pallet, Call, Config<T>, Storage, Event<T>},
 		// Include the custom logic from the pallet-template in the runtime.
 		TemplateModule: pallet_template::{Pallet, Call, Storage, Event<T>},
+		// Dot Mog Pallet, mandatory for a DOTMog universe chain.
+		DotMogModule: pallet_dotmog::{Pallet, Call, Storage, Event<T>, Config<T>},
 	}
 );
 
